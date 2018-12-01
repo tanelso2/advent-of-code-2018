@@ -19,7 +19,7 @@ let part2 (input : int list): int =
         match l with
             | x::xs ->
                 let new_freq = x + curr_freq in
-                if List.exists ((=) new_freq) seen
+                if List.mem new_freq seen
                     then new_freq
                     else part2_helper xs (new_freq :: seen) new_freq
             | [] -> part2_helper input seen curr_freq
@@ -33,7 +33,7 @@ let part2_set (input : int list): int =
         match l with
             | x::xs ->
                 let new_freq = x + curr_freq in
-                if Set.exists seen ~f:((=) new_freq)
+                if Set.mem seen new_freq
                     then new_freq
                     else part2_helper xs (Set.add seen new_freq) new_freq
             | [] -> part2_helper input seen curr_freq
