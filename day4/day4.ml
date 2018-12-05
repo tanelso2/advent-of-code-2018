@@ -144,7 +144,7 @@ let part1 (input : guard_event list) : int =
   let (minute_most_slept, _) = calculate_minute_most_slept periods in
   guard_id * minute_most_slept
 
-let part2 (_ : guard_event list) : int =
+let part2 (input : guard_event list) : int =
   let sleeping_periods = get_sleeping_periods input in
   let guards_to_minutes_most_slept = Map.map sleeping_periods ~f:calculate_minute_most_slept in
   let (guard_id, (minute_most_slept, _)) =
