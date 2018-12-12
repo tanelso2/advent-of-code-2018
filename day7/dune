@@ -1,0 +1,3 @@
+(executable
+  (name day7)
+  (libraries core extlib re.perl))
