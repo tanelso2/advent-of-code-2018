@@ -15,8 +15,8 @@ type gameState = {
 
 let add_scores (m: playerScores) (player: int) (num: int): playerScores =
   let change_fn = function
-  | Some x -> Some (x + num)
-  | None -> Some num
+    | Some x -> Some (x + num)
+    | None -> Some num
   in
   Map.change m player ~f:change_fn
 
