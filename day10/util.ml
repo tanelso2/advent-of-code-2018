@@ -14,6 +14,8 @@ module Map = struct
     in
     let () = Map.iteri m ~f:iter_fn in
     !elem
+
+  let min_by m ~key_fn:f = max_by m ~key_fn:(fun k v -> f k v |> Int.neg)
 end
 
 module List = struct
@@ -30,4 +32,6 @@ module List = struct
     in
     let () = List.iter l ~f:iter_fn in
     !elem
+
+  let min_by l ~key_fn:f = max_by l ~key_fn:(fun a -> f a |> Int.neg)
 end

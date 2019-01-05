@@ -1,6 +1,6 @@
 type t
 
-val create : (int * int) -> (int * int) -> t
+val parse_line : string -> t
 
 val move : t -> t
 

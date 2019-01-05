@@ -1,13 +1,17 @@
 open Core
 
-let x = [1;2;3]
+let input_file = "input.txt"
 
-let a = Util.List.max_by ~key_fn:ident x
+let read_file (filename : string) : string list =
+  let chan = Core.In_channel.create filename in
+  let raw_data = ExtLib.input_list chan in
+  let filtered_data : string list = List.filter ~f:(fun x -> String.equal "" x |> not) raw_data in
+  filtered_data
+
+let parsed_input = read_file input_file |> List.map ~f:Star.parse_line
 
 let () =
-  match a with
-  | Some x -> ExtLib.print x
-  | _ -> ()
+  ExtLib.print parsed_input
 
 (* let () = *)
 (*   ExtLib.print (part1 ()); *)
